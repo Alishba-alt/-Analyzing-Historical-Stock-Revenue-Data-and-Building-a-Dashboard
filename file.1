@@ -1,0 +1,16 @@
+import yfinance as yf
+
+# Step 1: Create a Ticker object for Tesla
+tesla = yf.Ticker("TSLA")
+
+# Step 2: Get historical stock data (e.g., for the last 5 days)
+tesla_data = tesla.history(period="5d")
+
+# Step 3: Reset the index
+tesla_data.reset_index(inplace=True)
+
+# Step 4 (Optional): Save to CSV file
+tesla_data.to_csv("tesla_stock_data.csv", index=False)
+
+# Step 5: Display the first 5 rows
+print(tesla_data.head())
