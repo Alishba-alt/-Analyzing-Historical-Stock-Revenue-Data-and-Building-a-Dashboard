@@ -1,0 +1,13 @@
+import yfinance as yf
+
+# Get Tesla data
+tsla = yf.Ticker("TSLA")
+
+# Get income statements
+income_stmt = tsla.financials
+
+# Show revenue by year
+print("✅ Tesla Annual Revenue:")
+revenue = income_stmt.loc["Total Revenue"]
+for date, value in revenue.items():
+    print(f"{date.date()}: ${value:,}")
