@@ -1,0 +1,14 @@
+import yfinance as yf
+import pandas as pd
+
+# Create a Ticker object for GameStop
+gme = yf.Ticker("GME")
+
+# Download historical stock data (last 5 years by default)
+gme_data = gme.history(period="5y")
+
+# Save to CSV
+gme_data.to_csv("gamestop_stock_data.csv")
+
+print("✅ GameStop stock data saved to 'gamestop_stock_data.csv'")
+
